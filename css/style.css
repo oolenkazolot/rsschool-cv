@@ -68,6 +68,11 @@ li {
   background: linear-gradient(3deg, #e6d16c, #16014c);
 }
 
+.main {
+  padding-top: 30px;
+  min-height: calc(100vh - 100px);
+}
+
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -113,10 +118,13 @@ li {
   line-height: 25px;
   font-weight: 500;
   color: #26114e;
-  transition: opacity 0.3s;
+  transition: color 0.3s;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s, border-bottom 0.3s;
 }
 .nav__link:hover {
-  opacity: 0.7;
+  border-bottom: 3px solid #ab8caa;
+  color: #ab8caa;
 }
 @media (min-width: 960px) {
   .nav__link {
@@ -143,7 +151,6 @@ li {
 
 .profile {
   width: 100%;
-  margin-top: 30px;
   padding-bottom: 20px;
   text-align: center;
   border-bottom: solid 7px #ab8caa;
@@ -213,6 +220,13 @@ li {
 .section:nth-last-child(2) {
   border-bottom: none;
 }
+.section--active {
+  padding: 5px;
+  border: 4px dashed #8d6da9;
+  background-color: rgba(227, 218, 184, 0.2);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
 .section__title {
   padding: 20px 0 15px 0;
   font-size: 15px;
@@ -247,9 +261,6 @@ li {
   font-size: 20px;
   padding-right: 5px;
 }
-.section__content {
-  text-align: justify;
-}
 .section__content--orange {
   color: #b19c64;
 }
@@ -269,6 +280,10 @@ li {
 .section__link {
   padding-left: 5px;
   color: #b19c64;
+  transition: color 0.3s;
+}
+.section__link:hover {
+  color: #e2cd6c;
 }
 .section__list {
   padding-left: 20px;
@@ -280,6 +295,7 @@ li {
   font-size: 14px;
   line-height: 18px;
   font-weight: 400;
+  word-wrap: break-word;
 }
 .section__list-item::marker {
   color: #8d6da9;
@@ -298,8 +314,11 @@ li {
   color: #b19c64;
 }
 .section__list-link {
-  padding-left: 5px;
   color: #b19c64;
+  transition: color 0.3s;
+}
+.section__list-link:hover {
+  color: #e2cd6c;
 }
 
 .footer {
@@ -321,6 +340,16 @@ li {
 .footer__content-link {
   color: #fff;
   padding-left: 20px;
+  transition: opacity 0.3s;
+}
+.footer__content-link:hover {
+  opacity: 0.5;
+}
+.footer__link {
+  transition: opacity 0.3s;
+}
+.footer__link:hover {
+  opacity: 0.5;
 }
 .footer__img {
   height: 33px;

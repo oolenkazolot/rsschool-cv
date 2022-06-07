@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="favicon.ico">
+  <script defer src="js/script.js"></script>
 </head>
 <body>
    <header class="header">
@@ -20,34 +21,34 @@
         </a>
         <ul class="nav__list">
           <li class="nav__item">
-            <a href="#contacts" class="nav__link">Contacts</a>
+            <a href="#" data-href="contacts" class="nav__link">Contacts</a>
           </li>
           <li class="nav__item">
-            <a href="#summary" class="nav__link">Summary</a>
+            <a href="#" data-href="summary" class="nav__link">Summary</a>
           </li>
           <li class="nav__item">
-            <a href="#skills" class="nav__link">Skills</a>
+            <a href="#" data-href="skills" class="nav__link">Skills</a>
           </li>
           <li class="nav__item">
-            <a href="#code" class="nav__link">Code</a>
+            <a href="#" data-href="code" class="nav__link">Code</a>
           </li>
           <li class="nav__item">
-            <a href="#courses" class="nav__link">Courses</a>
+            <a href="#" data-href="courses" class="nav__link">Courses</a>
           </li>
           <li class="nav__item">
-            <a href="#projects" class="nav__link">Projects</a>
+            <a href="#" data-href="projects" class="nav__link">Projects</a>
           </li>
           <li class="nav__item">
-            <a href="#education" class="nav__link">Education</a>
+            <a href="#" data-href="education" class="nav__link">Education</a>
           </li>
           <li class="nav__item">
-            <a href="#english" class="nav__link">Languages</a>
+            <a href="#" data-href="languages" class="nav__link">Languages</a>
           </li>
         </ul>
       </div>
     </div>
   </header>
-  <main>
+  <main class="main">
     <div class="container">
       <section class="profile">
         <img class="profile__img" src="/img/photo.png" alt="photo">
@@ -56,8 +57,8 @@
         </div>
       </section>
       <div class="grid">
-        <section class="section">
-          <h2 class="section__title">CONTACTS</h2>
+        <section class="section" id="contacts">
+          <h2 class="section__title">Contacts</h2>
           <div class="section__description">
             <i class="icon-location section__icon"></i>
             <p class="section__content">Poznań, Poland</p>
@@ -76,17 +77,18 @@
           </div>
           <div class="section__description">
             <i class="icon-discord section__icon"></i>
-            <p class="section__content">Discord:<a class="section__link" href="https://t.me/olenkazolot">olenka(@oolenkazolot)</a></p>
+            <p class="section__content">Discord:<a class="section__link" href="https://discord.gg/avdEYTyT">olenka(oolenkazolot)</a></p>
           </div>
         </section>
-        <section class="section">
+        <section class="section" id="summary">
           <h2 class="section__title">Summary</h2>
           <div class="section__description">
             <p class="section__content section__content--orange">
-              I love programming, it captures me. When programming, I immerse myself completely in another world and forget about time. And I love this world. Programming has become a part of my life.</p>
+              My goal is to become a frontend developer. Priorities in life are work, family, hobbies.
+              Positive qualities: responsibility, work capacity, optimism. Negative qualities are also present, but today we will not talk about them. Higher education, legal, worked as a lawyer for 11 years, but this is already in the past, because I finally decided to do what I really like. I love programming, it captures me. When programming, I completely immerse myself in another world and forget about time.</p>
           </div>
         </section>
-        <section class="section">
+        <section class="section" id="skills">
           <h2 class="section__title">Skills</h2>
           <ul class="section__list">
             <li class="section__list-item">
@@ -107,15 +109,15 @@
             </li>
           </ul>
         </section>
-        <section class="section">
+        <section class="section" id="code">
           <h2 class="section__title">Code</h2>
           <code class="section__code">function openModal(id) {
-              &nbsp;const modal = document.getElementById(id);
-              &nbsp;modal.classList.add('modal--open');
+            &nbsp;const modal = document.getElementById(id);
+            &nbsp;modal.classList.add('modal--open');
             }
           </code>
         </section>
-        <section class="section">
+        <section class="section" id="courses">
           <h2 class="section__title">Courses</h2>
           <ul class="section__list">
             <li class="section__list-item">
@@ -129,7 +131,7 @@
             </li>
           </ul>
         </section>
-        <section class="section">
+        <section class="section" id="projects">
           <h2 class="section__title">Projects</h2>
           <ul class="section__list">
             <li class="section__list-item">
@@ -139,13 +141,14 @@
                 </a>
               </span>
             </li>
+          </ul>
         </section>
-        <section class="section">
+        <section class="section" id="education">
           <h2 class="section__title">Education</h2>
           <p class="section__content section__content--orange">Minsk, Academy of Public Administration under the President of the Republic of Belarus
           </p>
         </section>
-        <section class="section">
+        <section class="section" id="languages">
           <h2 class="section__title">Languages</h2>
           <p class="section__content section__content--orange">English: A2-Pre-Intermediate 
           </p>
@@ -164,8 +167,8 @@
         <a class="footer__link" href="https://rs.school/js/">
           <img class="footer__img" src="img/footer-img.svg" alt="Rolling Scopes School footer">
         </a>
-        
       </div>
+    </div>
   </footer>
 </body>
 </html>
