@@ -1,11 +1,14 @@
+$color-yellow: #897522;
+$color-main: #4a3554;
+
 @font-face {
   font-family: 'icomoon';
-  src: url('../fonts-icon/fonts/icomoon.eot?8o1b32');
-  src: url('../fonts-icon/fonts/icomoon.eot?8o1b32#iefix')
+  src: url('../assets/fonts-icon/fonts/icomoon.eot?8o1b32');
+  src: url('../assets/fonts-icon/fonts/icomoon.eot?8o1b32#iefix')
       format('embedded-opentype'),
-    url('../fonts-icon/fonts/icomoon.ttf?8o1b32') format('truetype'),
-    url('../fonts-icon/fonts/icomoon.woff?8o1b32') format('woff'),
-    url('../fonts-icon/fonts/icomoon.svg?8o1b32#icomoon') format('svg');
+    url('../assets/fonts-icon/fonts/icomoon.ttf?8o1b32') format('truetype'),
+    url('../assets/fonts-icon/fonts/icomoon.woff?8o1b32') format('woff'),
+    url('../assets/fonts-icon/fonts/icomoon.svg?8o1b32#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -71,12 +74,17 @@ li {
 }
 
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
   background: linear-gradient(3deg, #e6d16c, #16014c);
 }
 
 .main {
-  padding-top: 30px;
   min-height: calc(100vh - 100px);
+  padding: 80px 0;
 }
 
 .container {
@@ -84,8 +92,8 @@ li {
   margin: 0 auto;
   padding: 0 20px;
 
-  @media (min-width: 768px) {
-    padding: 0 100px;
+  @media (min-width: 960px) {
+    padding: 0 80px;
   }
 }
 
@@ -93,23 +101,33 @@ li {
   height: 50px;
 
   &__list {
-    display: none;
     position: fixed;
     left: 0;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
     width: 180px;
+    max-width: 0;
     height: 100vh;
     padding-top: 10px;
     background-color: #fff;
     box-shadow: 1px 0px 30px -3px rgba(172, 151, 99, 1);
+    overflow: hidden;
+    transition: max-width 0.3s;
+
+    &--open {
+      max-width: 200px;
+      padding: 10px;
+    }
 
     @media (min-width: 960px) {
       position: static;
-      display: flex;
+      flex-direction: row;
       justify-content: end;
       align-items: center;
       width: unset;
       height: 40px;
+      max-width: none;
       padding-top: 0px;
       background-color: transparent;
       box-shadow: unset;
@@ -120,20 +138,20 @@ li {
     display: inline-block;
     padding: 5px 15px;
     font-size: 16px;
-    line-height: 25px;
     font-weight: 500;
-    color: #26114e;
-    transition: color 0.3s;
+    color: $color-main;
     border-bottom: 3px solid transparent;
     transition: color 0.3s, border-bottom 0.3s;
 
+    &:focus,
+    &:active,
     &:hover {
-      border-bottom: 3px solid #ab8caa;
-      color: #ab8caa;
+      color: $color-yellow;
+      border-bottom: 3px solid $color-yellow;
     }
 
     @media (min-width: 960px) {
-      padding: 0 10px;
+      padding: 5px 10px;
       color: #fff;
     }
   }
@@ -160,7 +178,7 @@ li {
   width: 100%;
   padding-bottom: 20px;
   text-align: center;
-  border-bottom: solid 7px #ab8caa;
+  border-bottom: solid 7px $color-yellow;
 
   @media (min-width: 960px) {
     display: flex;
@@ -170,135 +188,168 @@ li {
 
   &__img {
     height: 150px;
-
-    @media (min-width: 960px) {
-      padding-right: 200px;
-    }
+    padding: 5px;
+    border: 3px dashed $color-yellow;
+    border-radius: 50%;
   }
 
   &__content {
     padding: 20px 0;
 
     @media (min-width: 960px) {
-      padding-top: 0px;
+      padding: 0 0 0 60px;
     }
   }
 
   &__title {
     font-size: 28px;
-    line-height: 38px;
     font-weight: 300;
-    color: #c2ad67;
+    color: $color-main;
     text-shadow: 1px 1px #7f6a5c;
     text-transform: uppercase;
+    letter-spacing: 1px;
 
     &::after {
       content: '';
       display: block;
       width: 60px;
-      border-bottom: 2px solid #ab8caa;
-      padding-bottom: 3px;
       margin: 0 auto;
+      padding-bottom: 3px;
+      border-bottom: 2px solid $color-yellow;
     }
 
     @media (min-width: 960px) {
       font-size: 30px;
-      line-height: 40px;
+    }
+  }
+
+  &__subtitle {
+    padding-top: 30px;
+    font-size: 16px;
+    font-weight: 300;
+    text-shadow: 1px 1px $color-yellow;
+    text-transform: uppercase;
+    color: $color-main;
+    letter-spacing: 1px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 20px;
+      margin: 0 auto;
+      padding-bottom: 3px;
+      border-bottom: 2px solid $color-yellow;
+    }
+
+    @media (min-width: 960px) {
+      font-size: 18px;
     }
   }
 }
 
 .grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  padding-top: 20px;
+
   @media (min-width: 768px) {
-    padding-top: 20px;
     display: grid;
     gap: 20px;
     grid-template-columns: 1fr 1fr;
+    padding-top: 20px;
   }
 }
 
 .section {
   padding-bottom: 30px;
-  border-bottom: solid 1px #8d6da9;
+  border-bottom: solid 1px $color-yellow;
 
   &:last-child {
     border-bottom: none;
   }
 
-  &:nth-last-child(2) {
-    border-bottom: none;
+  @media (min-width: 768px) {
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:nth-last-child(2) {
+      border-bottom: none;
+    }
   }
 
   &--active {
     padding: 5px;
-    border: 4px dashed #8d6da9;
     background-color: rgba(227, 218, 184, 0.2);
-
+    border: 3px dashed $color-yellow;
     border-radius: 5px;
     transition: background-color 0.3s;
+
+    &:last-child {
+      border-bottom: 3px dashed $color-yellow;
+    }
+
+    &:nth-last-child(2) {
+      border-bottom: 3px dashed $color-yellow;
+    }
   }
 
   &__title {
-    padding: 20px 0 15px 0;
+    padding: 0 0 15px 0;
     font-size: 15px;
-    line-height: 21px;
-    letter-spacing: 1px;
     font-weight: 600;
-    color: #8d6da9;
     text-transform: uppercase;
-
-    @media (min-width: 768px) {
-      padding: 0 0 15px 0;
-      line-height: 23px;
-    }
+    color: $color-yellow;
+    letter-spacing: 1px;
   }
 
   &__description {
     display: flex;
     align-items: center;
     padding: 5px 0;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 15px;
     font-weight: 400;
-    color: #8d6da9;
+    color: $color-yellow;
 
     @media (min-width: 768px) {
       font-size: 16px;
-      line-height: 20px;
     }
   }
 
   &__icon {
-    font-size: 20px;
     padding-right: 5px;
+    font-size: 20px;
+    color: $color-yellow;
   }
 
   &__content {
     &--orange {
-      color: #b19c64;
+      color: $color-main;
     }
   }
 
   &__code {
-    font-size: 14px;
-    font-weight: 400;
-    color: #b19c64;
     padding: 5px 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: $color-main;
     white-space: pre-line;
 
     @media (min-width: 768px) {
       font-size: 16px;
-      line-height: 20px;
     }
   }
 
   &__link {
-    padding-left: 5px;
-    color: #b19c64;
-    transition: color 0.3s;
+    color: $color-main;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px dashed transparent;
+    word-break: break-word;
 
     &:hover {
-      color: #e2cd6c;
+      color: $color-yellow;
+      border-bottom: 3px dashed #897522;
     }
   }
 
@@ -309,38 +360,45 @@ li {
 
   &__list-item {
     padding: 5px;
-    list-style-type: square;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 15px;
     font-weight: 400;
     word-wrap: break-word;
+    list-style-type: square;
 
     &::marker {
-      color: #8d6da9;
+      color: $color-yellow;
     }
 
     @media (min-width: 768px) {
       font-size: 16px;
-      line-height: 20px;
     }
   }
 
   &__list-title {
-    color: #8d6da9;
+    color: $color-yellow;
   }
 
   &__list-description {
     padding-left: 5px;
-    color: #b19c64;
+    color: $color-main;
   }
 
   &__list-link {
-    color: #b19c64;
-    transition: color 0.3s;
+    color: $color-main;
+    border-bottom: 3px dashed transparent;
+    transition: color 0.3s, border-bottom 0.3s;
 
     &:hover {
-      color: #e2cd6c;
+      color: $color-yellow;
+      border-bottom: 3px dashed #897522;
     }
+  }
+}
+
+.contact {
+  &__block {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -349,26 +407,30 @@ li {
   background: linear-gradient(3deg, #16014c, #e6d16c);
 
   &__wrapper {
-    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 50px;
   }
 
   &__content {
     display: flex;
     align-items: center;
+    font-size: 14px;
     color: #fff;
-    font-size: 70%;
   }
 
   &__content-link {
+    padding-left: 10px;
     color: #fff;
-    padding-left: 20px;
-    transition: opacity 0.3s;
+    transition: color 0.3s;
 
     &:hover {
-      opacity: 0.5;
+      color: $color-yellow;
+    }
+
+    @media (min-width: 768px) {
+      padding-left: 20px;
     }
   }
 

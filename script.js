@@ -1,7 +1,7 @@
-const IMG_OPEN = 'images/burger.svg';
-const IMG_CLOSE = 'images/close.svg';
-const BTN_ID = 'menu-btn';
-const MENU_ID = 'header-menu';
+const CONTENT_OPEN = '<i class="icon-nav-menu-btn"></i>';
+const CONTENT_CLOSE = '&#10006;';
+const BTN_ID = 'nav-btn';
+const MENU_ID = 'menu';
 const BTN_IMG_ID = 'menu-btn-img';
 const NAV_LINK_CLASS = 'nav__link';
 
@@ -10,19 +10,19 @@ const btnImg = document.getElementById(BTN_IMG_ID);
 const menuBtn = document.getElementById(BTN_ID);
 const menuLinks = document.getElementsByClassName(NAV_LINK_CLASS);
 
-/*menuBtn.addEventListener('click', () => {
+menuBtn.addEventListener('click', () => {
   menuBtn.classList.toggle('toogle-menu--open');
-  changeImg();
-  menu.classList.toggle('menu--open');
+  changeContent();
+  menu.classList.toggle('nav__list--open');
 });
 
-function changeImg() {
+function changeContent() {
   if (menuBtn.classList.contains('toogle-menu--open')) {
-    btnImg.src = IMG_CLOSE;
+    menuBtn.innerHTML = CONTENT_CLOSE;
   } else {
-    btnImg.src = IMG_OPEN;
+    menuBtn.innerHTML = CONTENT_OPEN;
   }
-}*/
+}
 
 function addMenuHandler(links) {
   if (!links.length) {
